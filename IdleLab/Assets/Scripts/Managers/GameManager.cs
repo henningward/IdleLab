@@ -14,13 +14,22 @@ public class GameManager : MonoBehaviour
 	
     // Initialization of GameManager Instance
     private static GameManager instance;
-    
     public static GameManager Instance {
         get { 
             if (instance == null) {
                 instance = FindObjectOfType<GameManager>();
             }
             return instance; } }
+
+
+    
+
+// =================================================================================
+// DECLARATIONS
+// =================================================================================
+
+    // Notation class. Used for number format
+    public Notation notation;
 
 // =================================================================================
 // EXECUTION OF EVENT FUNCTIONS
@@ -32,6 +41,7 @@ public class GameManager : MonoBehaviour
             GameObject.DontDestroyOnLoad(gameObject);
         }
 
+        notation = new Notation();
 		// reduser frame rate for å spare minne
 		Application.targetFrameRate = 60;
 		
