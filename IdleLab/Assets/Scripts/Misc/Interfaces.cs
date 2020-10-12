@@ -5,6 +5,8 @@ using BreakInfinity;
 using static BreakInfinity.BigDouble;
 
 
+
+/*
 public interface IStationType {
     
     
@@ -33,3 +35,4 @@ public interface IWorkable<T> where T : IEmployable{
     BigDouble ProductionPerSec {get; set;}
     void SaveToData();
 }
+*/

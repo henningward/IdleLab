@@ -8,6 +8,31 @@ using static BreakInfinity.BigDouble;
 public class Constants {
 
     // DEFINITIONS
+
+
+    // sufficies for notation
+
+    public static readonly string[] suffices =
+    {"K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "Ud",
+    "Dd", "Td", "Qad", "Qid", "Sxd", "Spd", "Od", "Nd", "V", "Uv", "Dv",
+    "Tv", "Qav", "Qiv", "Sxv", "Spv", "Ov", "Nv", "Tg", "Utg", "Dtg", "Ttg",
+    "Qatg", "Qitg", "Sxtg", "Sptg", "Otg", "Ntg", "Qaa", "Uqa", "Dqa", "Tqa",
+    "Qaqa", "Qiqa", "Sxqa", "Spqa", "Oqa", "Nqa", "Qia", "Uqi", "Dqi",
+    "Tqi", "Qaqi", "Qiqi", "Sxqi", "Spqi", "Oqi", "Nqi", "Sxa", "Usx",
+    "Dsx", "Tsx", "Qasx", "Qisx", "Sxsx", "Spsx", "Osx", "Nsx", "Spa",
+    "Usp", "Dsp", "Tsp", "Qasp", "Qisp", "Sxsp", "Spsp", "Osp", "Nsp",
+    "Og", "Uog", "Dog", "Tog", "Qaog", "Qiog", "Sxog", "Spog", "Oog",
+    "Nog", "Na", "Un", "Dn", "Tn", "Qan", "Qin", "Sxn", "Spn", "On",
+    "Nn", "Ct", "Uc"};
+
+    public static readonly string[] sufficies2 = 
+    {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+		
+
+        
+
+/*
+    // DEFINITIONS
     public const int MAX_NUMBER_OF_STATIONS = 6;
     public const int MAX_WORKERS_PER_STATION = 4;
     public const int MAX_WORKERS = 60;
@@ -176,5 +201,5 @@ public class Constants {
     
 
     #endregion
-    
+ */   
 }
