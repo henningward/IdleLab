@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using BreakInfinity;
+using static BreakInfinity.BigDouble;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class GameManager : MonoBehaviour
 	
     // Initialization of GameManager Instance
     private static GameManager instance;
+    
     public static GameManager Instance {
         get { 
             if (instance == null) {
