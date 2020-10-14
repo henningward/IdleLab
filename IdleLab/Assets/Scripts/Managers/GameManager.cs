@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
 // =================================================================================
 	
     // Initialization of GameManager Instance
-    private static GameManager instance;
+    private static GameManager _instance;
     public static GameManager Instance {
         get { 
-            if (instance == null) {
-                instance = FindObjectOfType<GameManager>();
+            if (_instance == null) {
+                _instance = FindObjectOfType<GameManager>();
             }
-            return instance; } }
+            return _instance; } }
 
 
     
@@ -29,19 +29,29 @@ public class GameManager : MonoBehaviour
 // =================================================================================
 
     // Notation class. Used for number format
-    public Notation notation;
+    public Notation Notation;
+
+    // Saved game gata
+    public GameData Data;
+
+    // Player object
+    public Player Player;
 
 // =================================================================================
 // EXECUTION OF EVENT FUNCTIONS
 // =================================================================================
 	void Awake() {
 		// Create an dont-destroy instance of this gameObject, if one doesn't exist
-		if (instance == null) {
-            instance = this; 
+		if (_instance == null) {
+            _instance = this; 
             GameObject.DontDestroyOnLoad(gameObject);
         }
 
-        notation = new Notation();
+        // Create objects
+        Notation = new Notation();
+        Data = new GameData();
+        Player = new Player();
+
 		// reduser frame rate for å spare minne
 		Application.targetFrameRate = 60;
 		
@@ -51,10 +61,33 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
+		// DETTE ER LOAD!
+		//SaveSystem.LoadGame(ref Data);
+		
+		// kommenter ut denne for å starte "på scratch" ved hver load
+		//ResetProgress();
+
+        
+
+		/*
+		SoundManager.Instance.SetSoundAndMusic();
+		StationManager.Instance.InitializeWorkers<Scientist>(Constants.MAX_NUMBER_OF_SCIENTISTS);
+		StationManager.Instance.InitializeWorkers<Investor>(Constants.MAX_NUMBER_OF_SCIENTISTS);
+        StationManager.Instance.InitializeStations();
+
+		// Update notation text in settings menu.
+		if (PlayerManager.Instance.data.savedNotation != 1){
+			PlayerManager.Instance.notation.CurrentNotation = PlayerManager.Instance.data.savedNotation - 1;
+			MenuManager.Instance.ToggleNotationType();
+		} else{
+			PlayerManager.Instance.notation.CurrentNotation = PlayerManager.Instance.notation.GetTotalNotationTypes();
+			MenuManager.Instance.ToggleNotationType();
+		}
+        */
     }
+
 
 
     // Update is called once per frame
@@ -69,5 +102,27 @@ public class GameManager : MonoBehaviour
 			}
 		}
     }
+
+
+#region saveLoadFunctions
+
+    IEnumerator SaveGame() {
+        while (true) {
+            yield return new WaitForSeconds(5);
+            SaveProgress();
+            Debug.Log("Game saved!");
+        }
+    }
+
+    private void SaveProgress() {
+        SaveSystem.SaveGame(Data);
+    }
+
+    private void ResetProgress() {
+        GameManager.Instance.Data.FullReset();
+    }
+
+#endregion 
+
 
 }

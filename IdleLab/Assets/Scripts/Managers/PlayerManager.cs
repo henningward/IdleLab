@@ -8,13 +8,13 @@ using static BreakInfinity.BigDouble;
 public class PlayerManager : MonoBehaviour {
 
     // Initialization of Instance
-    private static PlayerManager instance;
+    private static PlayerManager _instance;
     public static PlayerManager Instance {
         get { 
-            if (instance == null) {
-                instance = FindObjectOfType<PlayerManager>();
+            if (_instance == null) {
+                _instance = FindObjectOfType<PlayerManager>();
             }
-            return instance; } 
+            return _instance; } 
     }
 
 
@@ -27,9 +27,9 @@ public class PlayerManager : MonoBehaviour {
     
     void Awake()
     {
-		if (instance == null) {
+		if (_instance == null) {
             // Create an dont-destroy instance of this gameObject, if one doesn't exist
-            instance = this; 
+            _instance = this; 
             GameObject.DontDestroyOnLoad(gameObject);
         }
         //data = new PlayerData();

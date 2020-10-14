@@ -6,36 +6,39 @@ using static BreakInfinity.BigDouble;
 using System;
 
 [Serializable]
-public class PlayerData {
-/*
+public class GameData {
+
     // GENERAL    
-    private BigDouble researchPoints;
+    private BigDouble _researchPoints;
     public BigDouble ResearchPoints {
-        get { return researchPoints; }
+        get { return _researchPoints; }
         set { 
-            researchPoints = value;
-            MenuManager.Instance.ResearchPointsText.text = (value <= 10000) ? value.ToString("F0") : PlayerManager.Instance.notation.Prettify(value, 2);
+            _researchPoints = value;
+            MenuManager.Instance.ResearchPointsText.text = (value <= 10000) ? value.ToString("F0") : GameManager.Instance.Notation.Prettify(value, 2);
         }
     }
     
-    private BigDouble money;
+    private BigDouble _money;
     public BigDouble Money {
-        get { return money; }
+        get { return _money; }
         set { 
-            money = value; 
-            MenuManager.Instance.MoneyText.text = (value <= 10000) ? value.ToString("F0") : PlayerManager.Instance.notation.Prettify(value, 2);
+            _money = value; 
+            //MenuManager.Instance.MoneyText.text = (value <= 10000) ? value.ToString("F0") :  GameManager.Instance.Notation.Prettify(value, 2);
         }
     }
 
-    private BigDouble virusPoints;
-    public BigDouble VirusPoints {
-        get { return virusPoints; }
+    private BigDouble _recruitmentPoints;
+    public BigDouble RecruitmentPoints {
+        get { return _recruitmentPoints; }
         set {
-            virusPoints = value;
-            MenuManager.Instance.VirusPointText.text = (value <= 10000) ? value.ToString("F0") : PlayerManager.Instance.notation.Prettify(value, 2);
+            _recruitmentPoints = value;
+            MenuManager.Instance.RecruitmentPointsText.text = (value <= 10000) ? value.ToString("F0") :  GameManager.Instance.Notation.Prettify(value, 2);
         }
     }
 
+    public int savedNotation;
+
+/*
     public BigDouble currentBuyMultiplier;
     
     public int savedNotation;
@@ -90,9 +93,9 @@ public class PlayerData {
     public bool musicOn;
     public bool soundOn;
     public bool vfxOn;
+    */
     
-    
-    public PlayerData(){
+    public GameData(){
         
         FullReset();
 
@@ -101,6 +104,15 @@ public class PlayerData {
         
     }
 
+    public void FullReset(){
+        
+        ResearchPoints = 100;
+        Money = 100;
+        RecruitmentPoints = 100;
+
+        savedNotation = 1;
+    }
+/*
     public void FullReset(){
         researchPoints = 100;
         money = 1e2;

@@ -63,12 +63,12 @@ public class SaveSystem : MonoBehaviour
     public static string json = "";
 
     protected static string encryptKey = "3xhhr44dj1sc5g6h6f0pvq4g";
-    protected static string savePath = "/playerdataV1.save";
-    protected static string savePathBackUP = "/playerdataV1BackUp.save";
+    protected static string savePath = "/GameDataV1.save";
+    protected static string savePathBackUP = "/GameDataV1BackUp.save";
 
     public static int backUpCount = 0;
 
-    public static void SavePlayer(PlayerData data)
+    public static void SaveGame(GameData data)
     {
         var saveTo = backUpCount == 4 ? savePathBackUP : savePath;
         using (StreamWriter writer = new StreamWriter(Application.persistentDataPath + saveTo))
@@ -92,7 +92,7 @@ public class SaveSystem : MonoBehaviour
         writer.WriteLine(aes.EncryptString(stringTemp, encryptKey));
         return stringTemp;
     }
-    public static bool LoadSaveFile(ref PlayerData data, string path)
+    public static bool LoadSaveFile(ref GameData data, string path)
     {
         var success = false;
         //try
@@ -100,7 +100,7 @@ public class SaveSystem : MonoBehaviour
             using (StreamReader reader = new StreamReader(path))
             {
                 json = ConvertBase64ToString(reader);
-                data = JsonUtility.FromJson<PlayerData>(json);
+                data = JsonUtility.FromJson<GameData>(json);
                 reader.Close();
                 success = true;
             }
@@ -126,7 +126,7 @@ public class SaveSystem : MonoBehaviour
             File.CreateText(Application.persistentDataPath + savePath);
         }   
     }
-    public static void LoadPlayer(ref PlayerData data)
+    public static void LoadGame(ref GameData data)
     {
         CreateFile();
         if (!LoadSaveFile(ref data, Application.persistentDataPath + savePath))
@@ -143,8 +143,8 @@ public class SaveSystem : MonoBehaviour
         return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
     }
 
-/*
-    public void ImportPlayer(PlayerManager playerData)
+
+    public void ImportGame(GameData Data)
     {
         using (StreamWriter writer = new StreamWriter(Application.persistentDataPath + savePath))
         {
@@ -154,13 +154,13 @@ public class SaveSystem : MonoBehaviour
             using (StreamReader reader = new StreamReader(Application.persistentDataPath + savePath))
             {
                 json = ConvertBase64ToString(reader);
-                playerData.data = JsonUtility.FromJson<PlayerData>(json);
+                Data = JsonUtility.FromJson<GameData>(json);
                 reader.Close();
             }
         }
     }
 
-    public void ExportPlayer()
+    public void ExportGame()
     {
         using (StreamReader reader = new StreamReader(Application.persistentDataPath + savePath))
         {
@@ -172,7 +172,7 @@ public class SaveSystem : MonoBehaviour
             Debug.Log(outputData);
         }
     }
-*/
+
 
 
 /*
