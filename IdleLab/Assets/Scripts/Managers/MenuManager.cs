@@ -62,4 +62,17 @@ public class MenuManager : MonoBehaviour
     {
         
     }
+
+    public void GoToMenu(MenuName name)
+    {
+        switch (name)
+        {
+            case MenuName.Main:
+                Debug.Log ("main menu");
+                break;
+            case MenuName.Sound:
+                Debug.Log("sound menu");
+                break;
+        }
+    }
 }
