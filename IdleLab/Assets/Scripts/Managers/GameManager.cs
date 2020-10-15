@@ -5,23 +5,13 @@ using UnityEngine.UI;
 using BreakInfinity;
 using static BreakInfinity.BigDouble;
 
-public class GameManager : MonoBehaviour
+public class GameManager :  Singleton<GameManager>
 {
 
 // =================================================================================
 // INITIALIZATION
 // =================================================================================
 	
-    // Initialization of GameManager Instance
-    private static GameManager _instance;
-    public static GameManager Instance {
-        get { 
-            if (_instance == null) {
-                _instance = FindObjectOfType<GameManager>();
-            }
-            return _instance; } }
-
-
     
 
 // =================================================================================
@@ -37,20 +27,19 @@ public class GameManager : MonoBehaviour
     // Player object
     public Player Player;
 
+
+
 // =================================================================================
 // EXECUTION OF EVENT FUNCTIONS
 // =================================================================================
-	void Awake() {
-		// Create an dont-destroy instance of this gameObject, if one doesn't exist
-		if (_instance == null) {
-            _instance = this; 
-            GameObject.DontDestroyOnLoad(gameObject);
-        }
-
+	protected override void Awake() {
+        base.Awake();
+        
         // Create objects
         Notation = new Notation();
         Data = new GameData();
         Player = new Player();
+
 
 		// reduser frame rate for å spare minne
 		Application.targetFrameRate = 60;
@@ -62,12 +51,12 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        
+
 		// DETTE ER LOAD!
 		//SaveSystem.LoadGame(ref Data);
 		
 		// kommenter ut denne for å starte "på scratch" ved hver load
-		//ResetProgress();
+		ResetProgress();
 
         
 
@@ -119,7 +108,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void ResetProgress() {
-        GameManager.Instance.Data.FullReset();
+        GameManager.GetInstance().Data.FullReset();
     }
 
 #endregion 

@@ -12,9 +12,9 @@ public class GameData {
     private BigDouble _researchPoints;
     public BigDouble ResearchPoints {
         get { return _researchPoints; }
-        set { 
+        set {   
             _researchPoints = value;
-            MenuManager.Instance.ResearchPointsText.text = (value <= 10000) ? value.ToString("F0") : GameManager.Instance.Notation.Prettify(value, 2);
+            GameUIText.GetInstance().ResearchPointsText.text = (value <= 10000) ? value.ToString("F0") : GameManager.GetInstance().Notation.Prettify(value, 2);
         }
     }
     
@@ -23,7 +23,7 @@ public class GameData {
         get { return _money; }
         set { 
             _money = value; 
-            //MenuManager.Instance.MoneyText.text = (value <= 10000) ? value.ToString("F0") :  GameManager.Instance.Notation.Prettify(value, 2);
+            GameUIText.GetInstance().MoneyText.text = (value <= 10000) ? value.ToString("F0") :  GameManager.GetInstance().Notation.Prettify(value, 2);
         }
     }
 
@@ -32,7 +32,7 @@ public class GameData {
         get { return _recruitmentPoints; }
         set {
             _recruitmentPoints = value;
-            MenuManager.Instance.RecruitmentPointsText.text = (value <= 10000) ? value.ToString("F0") :  GameManager.Instance.Notation.Prettify(value, 2);
+            GameUIText.GetInstance().RecruitmentPointsText.text = (value <= 10000) ? value.ToString("F0") :  GameManager.GetInstance().Notation.Prettify(value, 2);
         }
     }
 
@@ -97,7 +97,7 @@ public class GameData {
     
     public GameData(){
         
-        FullReset();
+        //FullReset();
 
         //coins;
         //coinsClickValue;

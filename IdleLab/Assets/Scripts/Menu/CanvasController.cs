@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MenuName
+public class CanvasController : MonoBehaviour
 {
-    Main,
-    Sound,
-    ResearchStation
+    public CanvasType canvasType;
 }

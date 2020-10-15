@@ -5,17 +5,8 @@ using UnityEngine.UI;
 using BreakInfinity;
 using static BreakInfinity.BigDouble;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : Singleton<PlayerManager> {
 
-    // Initialization of Instance
-    private static PlayerManager _instance;
-    public static PlayerManager Instance {
-        get { 
-            if (_instance == null) {
-                _instance = FindObjectOfType<PlayerManager>();
-            }
-            return _instance; } 
-    }
 
 
 
@@ -24,18 +15,16 @@ public class PlayerManager : MonoBehaviour {
 
     // Employees 
     //public PlayerWorker playerWorker;
-    
-    void Awake()
-    {
-		if (_instance == null) {
-            // Create an dont-destroy instance of this gameObject, if one doesn't exist
-            _instance = this; 
-            GameObject.DontDestroyOnLoad(gameObject);
-        }
+
+     protected override void Awake()
+     {
+         base.Awake();
         //data = new PlayerData();
         
         //playerWorker = new PlayerWorker();
-    }
+     }
+      
+    
     // Start is called before the first frame update
     void Start() {
         
