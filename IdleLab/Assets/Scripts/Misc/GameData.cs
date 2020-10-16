@@ -90,12 +90,12 @@ public class GameData {
     public int[]  Investor_InvestorType            = new int[Constants.MAX_NUMBER_OF_INVESTORS];
     public BigDouble[] Investor_Level              = new BigDouble[Constants.MAX_NUMBER_OF_INVESTORS];
     public BigDouble[] Investor_SalaryIncrease     = new BigDouble[Constants.MAX_NUMBER_OF_INVESTORS];
-
+*/
     // SETTINGS
     public bool musicOn;
     public bool soundOn;
     public bool vfxOn;
-    */
+    
     
     public GameData(){
         

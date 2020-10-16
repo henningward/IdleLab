@@ -54,19 +54,17 @@ public class GameManager :  Singleton<GameManager>
 
 		// DETTE ER LOAD!
 		SaveSystem.LoadGame(ref Data);
-		
+		//Data.musicOn = true;
+        //Data.soundOn = true;
+        
         // Updates text fields on screen
         GameUIText.RefreshTextfields();
 
         //ResetProgress();
-        SaveProgress();
-        //Debug.Log(Data.ResearchPoints);
-
-
-        
+        SoundManager.GetInstance().SetSoundAndMusic();
 
 		/*
-		SoundManager.Instance.SetSoundAndMusic();
+		
 		StationManager.Instance.InitializeWorkers<Scientist>(Constants.MAX_NUMBER_OF_SCIENTISTS);
 		StationManager.Instance.InitializeWorkers<Investor>(Constants.MAX_NUMBER_OF_SCIENTISTS);
         StationManager.Instance.InitializeStations();
