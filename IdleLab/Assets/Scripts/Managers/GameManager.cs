@@ -52,15 +52,12 @@ public class GameManager :  Singleton<GameManager>
     // Start is called before the first frame update
     void Start() {
 
-		// DETTE ER LOAD!
+		// Load game
 		SaveSystem.LoadGame(ref Data);
-		//Data.musicOn = true;
-        //Data.soundOn = true;
-        
+
         // Updates text fields on screen
         GameUIText.RefreshTextfields();
 
-        //ResetProgress();
         SoundManager.GetInstance().SetSoundAndMusic();
 
 		/*
@@ -102,7 +99,7 @@ public class GameManager :  Singleton<GameManager>
         while (true) {
             yield return new WaitForSeconds(5);
             SaveProgress();
-            Debug.Log("Game saved!");
+
         }
     }
 
