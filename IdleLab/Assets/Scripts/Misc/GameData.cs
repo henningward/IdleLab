@@ -8,8 +8,10 @@ using System;
 [Serializable]
 public class GameData {
 
+
+
     // GENERAL    
-    private BigDouble _researchPoints;
+    public BigDouble _researchPoints;
     public BigDouble ResearchPoints {
         get { return _researchPoints; }
         set {   
@@ -18,7 +20,7 @@ public class GameData {
         }
     }
     
-    private BigDouble _money;
+    public BigDouble _money;
     public BigDouble Money {
         get { return _money; }
         set { 
@@ -27,7 +29,7 @@ public class GameData {
         }
     }
 
-    private BigDouble _recruitmentPoints;
+    public BigDouble _recruitmentPoints;
     public BigDouble RecruitmentPoints {
         get { return _recruitmentPoints; }
         set {

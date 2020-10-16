@@ -45,7 +45,7 @@ public class GameManager :  Singleton<GameManager>
 		Application.targetFrameRate = 60;
 		
 		//Save Game Coroutine
-		//StartCoroutine(SaveGame()); 
+		StartCoroutine(SaveGame()); 
 	}
 
 
@@ -53,10 +53,15 @@ public class GameManager :  Singleton<GameManager>
     void Start() {
 
 		// DETTE ER LOAD!
-		//SaveSystem.LoadGame(ref Data);
+		SaveSystem.LoadGame(ref Data);
 		
-		// kommenter ut denne for å starte "på scratch" ved hver load
-		ResetProgress();
+        // Updates text fields on screen
+        GameUIText.RefreshTextfields();
+
+        //ResetProgress();
+        SaveProgress();
+        //Debug.Log(Data.ResearchPoints);
+
 
         
 
@@ -108,7 +113,7 @@ public class GameManager :  Singleton<GameManager>
     }
 
     private void ResetProgress() {
-        GameManager.GetInstance().Data.FullReset();
+        Data.FullReset();
     }
 
 #endregion 

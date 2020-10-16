@@ -6,7 +6,7 @@ using System.IO;
 using System;
 using TMPro;
 
-public class SimpleAES
+public class SimpleAES : GameData
 {
     // This size of the IV (in bytes) must = (keysize / 8). Default keysize is 256, so the IV must be
     // 32 bytes long. Using a 16 character string here gives us 32 bytes when converted to a byte array.
@@ -74,6 +74,7 @@ public class SaveSystem : MonoBehaviour
         using (StreamWriter writer = new StreamWriter(Application.persistentDataPath + saveTo))
         {
             json = JsonUtility.ToJson(data);
+            // Debug.Log(json);
             ConvertStringToBase64(writer, json);
             writer.Close();
             /*
@@ -105,13 +106,13 @@ public class SaveSystem : MonoBehaviour
                 success = true;
             }
         //}
-        /*catch (Exception ex)
+        if (!success)
         {
             Debug.Log("Load Save Failed");
             CreateFile();
             // LoadPlayer(ref data);
             // Load Failed, handle codes here
-        }*/
+        }
         return success;
     }
     
