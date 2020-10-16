@@ -384,7 +384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 100220124}
   - component: {fileID: 100220125}
-  - component: {fileID: 100220126}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -428,21 +427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasType: 1
---- !u!114 &100220126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100220123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d985824e0cf2243834d2a98bcec5af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoneyText: {fileID: 589451989}
-  ResearchPointsText: {fileID: 762995582}
-  RecruitmentPointsText: {fileID: 1571464127}
 --- !u!1 &121868498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73a5b93fa4898441a0aa24a44a3cbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasParent: {fileID: 1009095197}
 --- !u!4 &900707335
 Transform:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 
 public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
-    private static T instance;
+    protected static T instance;
 
     private static bool m_applicationIsQuitting = false;
 

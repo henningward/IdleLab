@@ -11,5 +11,24 @@ public class GameUIText : Singleton<GameUIText>
     public Text MoneyText;
     public Text ResearchPointsText;
     public Text RecruitmentPointsText;
+
+
+    /// <summary>
+    /// override to prevent use of DontDestroyOnLoad, as the gameobject associated with GameUIText already contains DontDestroyOnLoad
+    /// </summary>
+    protected override void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+
 }
 
