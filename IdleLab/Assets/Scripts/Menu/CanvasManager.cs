@@ -26,8 +26,8 @@ public class CanvasManager : Singleton<CanvasManager>
 
         canvasControllerList.ForEach(x => x.gameObject.SetActive(false));
 
-        //SwitchCanvas(CanvasType.MainMenu);
-        SwitchCanvas(CanvasType.GameUI);
+        SwitchCanvas(CanvasType.MainMenu);
+        //SwitchCanvas(CanvasType.GameUI);
     
     }
 
